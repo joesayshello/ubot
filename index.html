@@ -3,46 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ubot Demo</title>
+    <title>Mijn Ingeladen Chatbot Demo</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 20px;
             background-color: #f0f2f5;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh; /* Zorgt ervoor dat de bot gecentreerd blijft */
+            display: flex; /* Gebruik flexbox voor centrering */
+            justify-content: center; /* Horizontaal centreren */
+            align-items: center; /* Verticaal centreren */
+            min-height: 100vh; /* Zorgt ervoor dat de body minstens de volledige viewport hoogte inneemt */
+            overflow: hidden; /* Voorkom scrollbalken als de content perfect past */
         }
         .chat-container {
             background-color: white;
             border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-            width: 350px; /* Breedte zoals in je iframe */
-            height: 430px; /* Hoogte zoals in je iframe */
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* Iets subtielere schaduw */
+            overflow: hidden; /* Zorgt ervoor dat de iframe mooi binnen de afgeronde hoeken blijft */
+            width: 350px; /* Breedte van de iframe */
+            height: 430px; /* Hoogte van de iframe */
         }
-        df-messenger {
-            --df-messenger-bot-message: #878fac;
-            --df-messenger-button-titlebar-color: #f7bb54;
-            --df-messenger-chat-background-color: #fafafa;
-            --df-messenger-font-color: white;
-            --df-messenger-send-icon: #878fac;
-            --df-messenger-user-message: #479b3d;
+        /* Stijl voor de iframe zelf als je die wilt aanpassen (optioneel) */
+        iframe {
+            border: none; /* Verwijder de standaard iframe rand */
+            width: 100%; /* Zorgt dat de iframe de volle breedte van de container inneemt */
+            height: 100%; /* Zorgt dat de iframe de volle hoogte van de container inneemt */
+            display: block; /* Verwijder extra ruimte onder de iframe */
         }
     </style>
 </head>
 <body>
     <div class="chat-container">
-        <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
-        <df-messenger
-          chat-icon="https:&#x2F;&#x2F;i.pinimg.com&#x2F;280x280_RS&#x2F;a9&#x2F;d8&#x2F;b1&#x2F;a9d8b1eb36ff7528c9383857a454db38.jpg"
-          intent="WELCOME"
-          chat-title="Ubot"
-          agent-id="ce19ee5d-3861-4425-93c3-6379b9a7e9d2"
-          language-code="nl"
-        ></df-messenger>
-        </div>
-</body>
-</html>
+        <iframe
+            allow="microphone;"
+            width="350"
