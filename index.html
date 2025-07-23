@@ -1,45 +1,43 @@
 <!DOCTYPE html>
+
 <html lang="nl">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mijn Ingeladen Chatbot Demo (Direct)</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 20px;
-            background-color: #f0f2f5; /* Een lichte grijze achtergrond */
-            display: flex; /* Gebruik flexbox voor centrering */
-            justify-content: center; /* Horizontaal centreren */
-            align-items: center; /* Verticaal centreren */
-            min-height: 100vh; /* Zorgt ervoor dat de body minstens de volledige viewport hoogte inneemt */
-            overflow: hidden; /* Voorkom scrollbalken als de content perfect past */
-        }
-        .chat-container {
-            /* background-color: white; */ /* DEZE REGEL IS NU VERWIJDERD */
-            border-radius: 8px; /* Afgeronde hoeken */
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* Een subtiele schaduw */
-            overflow: hidden; /* Zorgt ervoor dat de iframe mooi binnen de afgeronde hoeken blijft */
-            width: 350px; /* Breedte van de iframe, overgenomen uit jouw code */
-            height: 430px; /* Hoogte van de iframe, overgenomen uit jouw code */
-        }
-        iframe {
-            border: none; /* Verwijder de standaard iframe rand */
-            width: 100%; /* Zorgt dat de iframe de volle breedte van de container inneemt */
-            height: 100%; /* Zorgt dat de iframe de volle hoogte van de container inneemt */
-            display: block; /* Verwijder extra ruimte onder de iframe */
-        }
-    </style>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Mijn uBot-demo (Widget)</title>
+
 </head>
+
 <body>
-    <div class="chat-container">
-        <iframe
-            allow="microphone;"
-            width="350"
-            height="430"
-            src="https://console.dialogflow.com/api-client/demo/embedded/ce19ee5d-3861-4425-93c3-6379b9a7e9d2">
-        </iframe>
-    </div>
-</body>
+
+
+
+    <h1>uBot-Demo pagina</h1>
+
+    <p>Deze pagina bevat de uBot Messenger chatbot, die als een icoontje rechtsonder verschijnt.</p>
+
+
+
+    <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
+
+    <df-messenger
+
+      chat-icon="https:&#x2F;&#x2F;i.pinimg.com&#x2F;280x280_RS&#x2F;a9&#x2F;d8&#x2F;b1&#x2F;a9d8b1eb36ff7528c9383857a454db38.jpg"
+
+      intent="WELCOME"
+
+      chat-title="Ubot"
+
+      agent-id="ce19ee5d-3861-4425-93c3-6379b9a7e9d2"
+
+      language-code="nl"
+
+    ></df-messenger>
+
+    </body>
+
 </html>
