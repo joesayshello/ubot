@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mijn Ingeladen Chatbot Demo</title>
+    <title>Mijn Ingeladen Chatbot Demo (Direct)</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 20px;
-            background-color: #f0f2f5;
+            background-color: #f0f2f5; /* Een lichte grijze achtergrond */
             display: flex; /* Gebruik flexbox voor centrering */
             justify-content: center; /* Horizontaal centreren */
             align-items: center; /* Verticaal centreren */
@@ -17,14 +17,13 @@
             overflow: hidden; /* Voorkom scrollbalken als de content perfect past */
         }
         .chat-container {
-            background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* Iets subtielere schaduw */
+            /* background-color: white; */ /* DEZE REGEL IS NU VERWIJDERD */
+            border-radius: 8px; /* Afgeronde hoeken */
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* Een subtiele schaduw */
             overflow: hidden; /* Zorgt ervoor dat de iframe mooi binnen de afgeronde hoeken blijft */
-            width: 350px; /* Breedte van de iframe */
-            height: 430px; /* Hoogte van de iframe */
+            width: 350px; /* Breedte van de iframe, overgenomen uit jouw code */
+            height: 430px; /* Hoogte van de iframe, overgenomen uit jouw code */
         }
-        /* Stijl voor de iframe zelf als je die wilt aanpassen (optioneel) */
         iframe {
             border: none; /* Verwijder de standaard iframe rand */
             width: 100%; /* Zorgt dat de iframe de volle breedte van de container inneemt */
@@ -38,3 +37,9 @@
         <iframe
             allow="microphone;"
             width="350"
+            height="430"
+            src="https://console.dialogflow.com/api-client/demo/embedded/ce19ee5d-3861-4425-93c3-6379b9a7e9d2">
+        </iframe>
+    </div>
+</body>
+</html>
