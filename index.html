@@ -1,43 +1,46 @@
 <!DOCTYPE html>
-
 <html lang="nl">
-
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>uBot - Digitale Hulp van de Gemeente Utrecht</title> <style>
+        /* CSS om de iframe schermvullend te maken */
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%; /* Zorgt dat html en body de volledige hoogte innemen */
+            overflow: hidden; /* Voorkomt scrollbalken door de iframe */
+            font-family: Arial, sans-serif; /* Optioneel: pas het lettertype aan */
+            background-color: #f0f2f5; /* Optioneel: achtergrondkleur */
+            display: flex; /* Gebruik flexbox om de iframe te centreren */
+            justify-content: center; /* Horizontaal centreren */
+            align-items: center; /* Verticaal centreren */
+        }
 
-    <meta charset="UTF-8">
+        iframe {
+            width: 100%; /* Maak de iframe 100% breed van de parent (body) */
+            height: 100%; /* Maak de iframe 100% hoog van de parent (body) */
+            border: none; /* Verwijder de standaard rand van de iframe */
+            display: block; /* Zorgt dat de iframe geen extra witruimte onder zich heeft */
+        }
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Mijn uBot-demo (Widget)</title>
-
+        /* Responsive aanpassing voor kleinere schermen, indien nodig */
+        @media (max-width: 768px) {
+            iframe {
+                width: 100vw; /* Viewport width */
+                height: 100vh; /* Viewport height */
+            }
+        }
+    </style>
 </head>
-
 <body>
 
+    <iframe
+        allow="microphone;"
+        width="100%"
+        height="100%"
+        src="https://console.dialogflow.com/api-client/demo/embedded/ce19ee5d-3861-4425-93c3-6379b9a7e9d2">
+    </iframe>
 
-
-    <h1>uBot-Demo pagina</h1>
-
-    <p>Deze pagina bevat de uBot Messenger chatbot, die als een icoontje rechtsonder verschijnt.</p>
-
-
-
-    <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
-
-    <df-messenger
-
-      chat-icon="https:&#x2F;&#x2F;i.pinimg.com&#x2F;280x280_RS&#x2F;a9&#x2F;d8&#x2F;b1&#x2F;a9d8b1eb36ff7528c9383857a454db38.jpg"
-
-      intent="WELCOME"
-
-      chat-title="Ubot"
-
-      agent-id="ce19ee5d-3861-4425-93c3-6379b9a7e9d2"
-
-      language-code="nl"
-
-    ></df-messenger>
-
-    </body>
-
+</body>
 </html>
