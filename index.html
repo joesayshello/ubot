@@ -3,44 +3,87 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>uBot - Digitale Hulp van de Gemeente Utrecht</title> <style>
-        /* CSS om de iframe schermvullend te maken */
+    <title>Prototype uChat - Gemeente Utrecht</title>
+    <style>
+        /* Basisstijl voor HTML en Body */
         html, body {
             margin: 0;
             padding: 0;
-            height: 100%; /* Zorgt dat html en body de volledige hoogte innemen */
-            overflow: hidden; /* Voorkomt scrollbalken door de iframe */
-            font-family: Arial, sans-serif; /* Optioneel: pas het lettertype aan */
-            background-color: #f0f2f5; /* Optioneel: achtergrondkleur */
-            display: flex; /* Gebruik flexbox om de iframe te centreren */
-            justify-content: center; /* Horizontaal centreren */
-            align-items: center; /* Verticaal centreren */
+            height: 100%;
+            overflow: hidden; /* Voorkomt ongewenste scrollbalken */
+            font-family: Arial, sans-serif; /* Algemeen, leesbaar font */
+            display: flex; /* Gebruik flexbox voor centrering van content */
+            flex-direction: column; /* Stapel elementen verticaal */
+            justify-content: flex-start; /* Begin bovenaan */
+            align-items: center; /* Horizontaal centreren */
+            /* Achtergrond fade van rood naar wit (Utrecht kleuren) */
+            background: linear-gradient(to bottom, #d6001c 0%, #FFFFFF 100%); /* Van Utrecht Rood naar Wit */
         }
 
-        iframe {
-            width: 100%; /* Maak de iframe 100% breed van de parent (body) */
-            height: 100%; /* Maak de iframe 100% hoog van de parent (body) */
-            border: none; /* Verwijder de standaard rand van de iframe */
-            display: block; /* Zorgt dat de iframe geen extra witruimte onder zich heeft */
+        /* Stijl voor de titel */
+        h1 {
+            color: #333; /* Donkere tekstkleur voor leesbaarheid */
+            font-family: 'Open Sans', sans-serif; /* Een modern, strak font wat kan lijken op huisstijl */
+            font-size: 2.5em; /* Grotere lettergrootte */
+            margin-top: 20px; /* Ruimte boven de titel */
+            margin-bottom: 20px; /* Ruimte onder de titel */
+            text-align: center;
+            z-index: 100; /* Zorg dat de titel boven de chatbot ligt indien overlap */
+            padding: 0 10px; /* Kleine padding voor de titel op mobiel */
         }
 
-        /* Responsive aanpassing voor kleinere schermen, indien nodig */
+        /* Stijl voor Dialogflow Messenger container */
+        df-messenger {
+            position: fixed; /* Zorgt dat het blijft staan, ongeacht scrollen */
+            top: 0;
+            left: 0;
+            width: 100vw; /* Volledige viewport breedte */
+            height: 100vh; /* Volledige viewport hoogte */
+            z-index: 999; /* Zorg dat de chatbot boven de achtergrond ligt */
+            
+            /* Overwrite interne stijlen van df-messenger (optioneel, maar aanbevolen voor volledige overlay) */
+            --df-messenger-main-color: #d6001c; /* Header kleur (Utrecht rood) */
+            --df-messenger-font-color: #333; /* Tekstkleur binnen de chat */
+            --df-messenger-bubble-button-background-color: transparent; /* Verberg het zwevende knopje */
+            --df-messenger-bubble-button-icon-color: transparent; /* Verberg het icoontje */
+            --df-messenger-border-radius: 0; /* Geen afgeronde hoeken */
+            --df-messenger-chat-window-width: 100%; /* Zorg dat het chatvenster 100% is */
+            --df-messenger-chat-window-height: 100%; /* Zorg dat het chatvenster 100% is */
+            
+            /* Pas de padding aan zodat de chat onder de titel begint */
+            /* Deze waarden zijn experimenteel en kunnen afhangen van de interne structuur van df-messenger */
+            /* Alternatief is df-messenger in een div te plaatsen en die te positioneren */
+        }
+
+        /* Belangrijk: Om de titel zichtbaar te houden en de chat eronder te laten beginnen,
+           moet je mogelijk de positionering van df-messenger aanpassen of de titel in een vaste header plaatsen.
+           Voor dit voorbeeld zal de chat overlayen, tenzij we meer geavanceerde CSS toepassen.
+           Als je wilt dat de titel ALTIJD bovenaan blijft en de chat daaronder schuift,
+           dan wordt de setup iets complexer. Voor nu zal de chat over de achtergrond heen liggen.
+           Als je de titel in de chat zelf wilt, moet je de welkomstboodschap aanpassen in Dialogflow.
+        */
+        
+        /* Media query voor kleinere schermen - optioneel */
         @media (max-width: 768px) {
-            iframe {
-                width: 100vw; /* Viewport width */
-                height: 100vh; /* Viewport height */
+            h1 {
+                font-size: 1.8em; /* Kleinere titel op mobiel */
             }
         }
     </style>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <iframe
-        allow="microphone;"
-        width="100%"
-        height="100%"
-        src="https://console.dialogflow.com/api-client/demo/embedded/ce19ee5d-3861-4425-93c3-6379b9a7e9d2">
-    </iframe>
+    <h1>Prototype uChat - Gemeente Utrecht</h1>
+
+    <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
+    <df-messenger
+        intent="WELCOME"
+        start-event="WELCOME_EVENT"
+        chat-title="Ubot"
+        agent-id="ce19ee5d-3861-4425-93c3-6379b9a7e9d2"
+        language-code="nl"
+    ></df-messenger>
 
 </body>
 </html>
